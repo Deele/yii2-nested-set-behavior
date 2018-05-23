@@ -4,7 +4,7 @@
  * @copyright Copyright (c) 2014 Wanderson Bragança
  * @license http://opensource.org/licenses/BSD-3-Clause
  *
- * @author Wanderson Bragança (wbraganca)
+ * @author Wanderson Bragança (wbraganca) <wanderson.wbc@gmail.com>
  * @author Nils (Deele) <deele@tuta.io>
  */
 
@@ -16,10 +16,13 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * @author Wanderson Bragança <wanderson.wbc@gmail.com>
+ * NestedSetQueryBehavior is a behavior used for ActiveQuery to facilitate nested-set queries
+ *
+ * @package wbraganca\yii2-nested-set-behavior
  */
 class NestedSetQueryBehavior extends Behavior
 {
+
     /**
      * @var ActiveQuery the owner of this behavior.
      */
@@ -40,6 +43,7 @@ class NestedSetQueryBehavior extends Behavior
                        ->quoteColumnName($model->leftAttribute) . '=1'
         );
         unset($model);
+
         return $this->owner;
     }
 
@@ -56,7 +60,8 @@ class NestedSetQueryBehavior extends Behavior
      *
      * @return array
      */
-    public function options($settings = []) {
+    public function options($settings = [])
+    {
         $root = ArrayHelper::getValue(
             $settings,
             'root',
@@ -123,8 +128,7 @@ class NestedSetQueryBehavior extends Behavior
                         $title,
                         $root
                     );
-                }
-                else {
+                } else {
                     $title .= $root->{$titleAttribute};
                 }
                 $res[$root->{$idAttribute}] = $title;
@@ -208,6 +212,7 @@ class NestedSetQueryBehavior extends Behavior
                 $queryCallback
             )
         );
+
         return $this->makeData2Fancytree($data);
     }
 
@@ -230,7 +235,7 @@ class NestedSetQueryBehavior extends Behavior
              * @var NestedSetBehavior $root
              */
             $res[$root->{$root->idAttribute}] = [
-                'key' => $root->{$root->idAttribute},
+                'key'   => $root->{$root->idAttribute},
                 'title' => $root->{$root->titleAttribute}
             ];
 
@@ -323,6 +328,7 @@ class NestedSetQueryBehavior extends Behavior
                 unset($model);
             }
         }
+
         return $res;
     }
 
@@ -341,6 +347,7 @@ class NestedSetQueryBehavior extends Behavior
             }
             $tree[$key] = $item;
         }
+
         return $tree;
     }
 }
