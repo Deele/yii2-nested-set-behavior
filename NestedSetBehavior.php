@@ -370,7 +370,7 @@ class NestedSetBehavior extends Behavior
 
     /**
      * Prepends target to node as first child.
-     * @param ActiveRecord $target the target.
+     * @param ActiveRecord|NestedSetBehavior $target the target.
      * @param boolean $runValidation whether to perform validation.
      * @param array $attributes list of attributes.
      * @return boolean whether the prepending succeeds.
@@ -404,7 +404,7 @@ class NestedSetBehavior extends Behavior
 
     /**
      * Appends target to node as last child.
-     * @param ActiveRecord $target the target.
+     * @param ActiveRecord|NestedSetBehavior $target the target.
      * @param boolean $runValidation whether to perform validation.
      * @param array $attributes list of attributes.
      * @return boolean whether the appending succeeds.
@@ -713,7 +713,7 @@ class NestedSetBehavior extends Behavior
     }
 
     /**
-     * @param ActiveRecord $target.
+     * @param ActiveRecord|NestedSetBehavior $target.
      * @param int $key.
      * @param int $levelUp.
      * @param boolean $runValidation.
@@ -866,7 +866,7 @@ class NestedSetBehavior extends Behavior
     }
 
     /**
-     * @param ActiveRecord $target.
+     * @param ActiveRecord|NestedSetBehavior $target.
      * @param int $key.
      * @param int $levelUp.
      * @throws Exception.
@@ -1023,7 +1023,7 @@ class NestedSetBehavior extends Behavior
         $delta = $left - $right - 1;
 
         foreach (self::$_cached[get_class($this->owner)] as $node) {
-            /** @var $node ActiveRecord */
+            /** @var $node ActiveRecord|NestedSetBehavior */
             if ($node->getIsNewRecord() || $node->getIsDeletedRecord()) {
                 continue;
             }
@@ -1061,7 +1061,7 @@ class NestedSetBehavior extends Behavior
     private function correctCachedOnAddNode($key)
     {
         foreach (self::$_cached[get_class($this->owner)] as $node) {
-            /** @var $node ActiveRecord */
+            /** @var $node ActiveRecord|NestedSetBehavior */
             if ($node->getIsNewRecord() || $node->getIsDeletedRecord()) {
                 continue;
             }
@@ -1110,7 +1110,7 @@ class NestedSetBehavior extends Behavior
         $delta2 = $key - $left;
 
         foreach (self::$_cached[get_class($this->owner)] as $node) {
-            /** @var $node ActiveRecord */
+            /** @var $node ActiveRecord|NestedSetBehavior */
             if ($node->getIsNewRecord() || $node->getIsDeletedRecord()) {
                 continue;
             }
@@ -1189,7 +1189,7 @@ class NestedSetBehavior extends Behavior
         $delta3 = $left - $right - 1;
 
         foreach (self::$_cached[get_class($this->owner)] as $node) {
-            /** @var $node ActiveRecord */
+            /** @var $node ActiveRecord|NestedSetBehavior */
             if ($node->getIsNewRecord() || $node->getIsDeletedRecord()) {
                 continue;
             }
