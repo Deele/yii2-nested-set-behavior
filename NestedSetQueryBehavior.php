@@ -3,9 +3,6 @@
  * @link https://github.com/wbraganca/yii2-nested-set-behavior
  * @copyright Copyright (c) 2014 Wanderson Bragança
  * @license http://opensource.org/licenses/BSD-3-Clause
- *
- * @author Wanderson Bragança (wbraganca) <wanderson.wbc@gmail.com>
- * @author Nils (Deele) <deele@tuta.io>
  */
 
 namespace wbraganca\behaviors;
@@ -17,6 +14,9 @@ use yii\helpers\ArrayHelper;
 
 /**
  * NestedSetQueryBehavior is a behavior used for ActiveQuery to facilitate nested-set queries
+ *
+ * @author Wanderson Bragança (wbraganca) <wanderson.wbc@gmail.com>
+ * @author Nils (Deele) <deele@tuta.io>
  *
  * @package wbraganca\yii2-nested-set-behavior
  */
