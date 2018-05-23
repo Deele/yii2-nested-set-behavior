@@ -15,15 +15,18 @@ use yii\db\Expression;
 use yii\db\Exception;
 
 /**
- * @author Alexander Kochetov <creocoder@gmail.com>
- * @author Wanderson Bragança <wanderson.wbc@gmail.com>
+ * Class NestedSetBehavior
+ *
+ * @property NestedSetBehavior|ActiveRecord|\yii\base\Component|null $owner the owner of this behavior
+ *
+ * @author Wanderson Bragança (wbraganca) <wanderson.wbc@gmail.com>
+ * @author Alexander Kochetov (creocoder) <creocoder@gmail.com>
+ * @author Nils (Deele) <deele@tuta.io>
+ *
+ * @package wbraganca\yii2-nested-set-behavior
  */
 class NestedSetBehavior extends Behavior
 {
-    /**
-     * @var ActiveQuery the owner of this behavior.
-     */
-    public $owner;
     /**
      * @var bool
      */
