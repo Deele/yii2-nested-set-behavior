@@ -307,6 +307,8 @@ class NestedSetBehavior extends Behavior
 
                 $result = $this->owner->deleteAll($condition, $params) > 0;
                 $this->owner->afterDelete();
+            } else {
+                $result = false;
             }
             $this->_ignoreEvent = false;
 
