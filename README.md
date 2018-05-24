@@ -320,10 +320,36 @@ $node->moveAsRoot();
 Recursive tree traversal
 ------------------------
 
+Settings (name => config) for the resulting options array. The following options are supported:
+
+| Key | Type |  Default value | Description |
+|-|-|-|
+| `root` | integer or NestedSetTrait | `null` | Root record instance or its id, used to select specific tree to make options from |
+| `level` | integer or `null` | `null` | the level to start building options from, otherwise it will be built from ground up |
+| `queryCallback` | callable or `null` | `null` | A callback that is used to modify query of options. The signature of this callback must be: `function ($query)` where `$query` is the instance of `ActiveQuery`. The callback should return the modified query. |
+| `titleCallback` | callable or `null` | `null` | A callback that is used to generate each individual item title. The signature of this callback must be: `function ($title, $item)` where `$title` is the generated title, and `$item` is instance of item. The callback should return the modified title. |
+| `idAttribute` | string or `null` | `idAttribute` from given Root or `null` | ID attribute of item that is used to create option key |
+| `titleAttribute` | string or `null` | `titleAttribute` from given Root or `null` | Title attribute of item that is used to create title |
+| `subtractLevel` | integer | `0` | How many levels to subtract from the root up (to display only a branches) |
+| `spacer` | string | `—` | Space character that is prefixed before title depending on item level |
+| `spacerArrow` | string  | `›` | Space arrow character that is prefixed before title after spacer characters |
+
+Example:
+
 ```php
-Category::find()->options();     // List all the tree
-Category::find()->options(1);    // List all category in tree with root.id=1
-Category::find()->options(1, 3); // List 3 levels of category in tree with root.id=1
+// List all the tree
+Category::find()->options();
+
+// List all category in tree with root.id=1
+Category::find()->options(['root' => 1]);
+
+// List 3 levels of category in tree with root.id=1
+Category
+    ::find()
+    ->options([
+        'root' => 1,
+        'queryCallback' => function ($query) { $query->andWhere(['<=', 'level', 3]); return $query; }
+    ]);
 ```
 
 Data format for [Fancytree](https://github.com/wbraganca/yii2-fancytree-widget).
