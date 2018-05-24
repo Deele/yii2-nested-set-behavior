@@ -322,8 +322,8 @@ Recursive tree traversal
 
 Settings (name => config) for the resulting options array. The following options are supported:
 
-| Key | Type |  Default value | Description |
-|-|-|-|
+| Key | Type | Default value | Description |
+|------------------|---------------------------|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `root` | integer or NestedSetTrait | `null` | Root record instance or its id, used to select specific tree to make options from |
 | `level` | integer or `null` | `null` | the level to start building options from, otherwise it will be built from ground up |
 | `queryCallback` | callable or `null` | `null` | A callback that is used to modify query of options. The signature of this callback must be: `function ($query)` where `$query` is the instance of `ActiveQuery`. The callback should return the modified query. |
@@ -332,7 +332,7 @@ Settings (name => config) for the resulting options array. The following options
 | `titleAttribute` | string or `null` | `titleAttribute` from given Root or `null` | Title attribute of item that is used to create title |
 | `subtractLevel` | integer | `0` | How many levels to subtract from the root up (to display only a branches) |
 | `spacer` | string | `—` | Space character that is prefixed before title depending on item level |
-| `spacerArrow` | string  | `›` | Space arrow character that is prefixed before title after spacer characters |
+| `spacerArrow` | string | `›` | Space arrow character that is prefixed before title after spacer characters |
 
 Example:
 
