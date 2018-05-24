@@ -320,7 +320,7 @@ $node->moveAsRoot();
 Recursive tree traversal
 ------------------------
 
-Settings (name => config) for the resulting options array. The following options are supported:
+To get options for select input, you can use `NestedSetQueryBehavior::options($settings = [])` where `$settings` is an array that configures resulting options. The following options are supported:
 
 | Key | Type | Default value | Description |
 |------------------|---------------------------|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
